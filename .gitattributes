@@ -1,0 +1,4 @@
+# O app roda no Linux (Vercel). Mantem LF no repositorio para o Windows nao
+# marcar o projeto inteiro como modificado a cada checkout.
+* text=auto eol=lf
+*.png binary

@@ -1,0 +1,6 @@
+# Nada disso e usado em producao - o app so precisa do taco.json ja gerado.
+data/*.csv
+data/taco-indice.txt
+tools/
+serve.mjs
+README.md
