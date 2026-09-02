@@ -81,7 +81,7 @@ mês registrando cinco refeições por dia.
 você escreve ou fotografa
         ↓
 js/gemini.js  →  Gemini (structured output, JSON Schema)
-        ↓        prompt inclui o índice completo da TACO (591 alimentos)
+        ↓        prompt inclui o índice completo da TACO (597 alimentos)
         ↓        e proíbe o modelo de somar qualquer coisa
    [{ nome, gramas, taco_id, confianca_taco }, ...]
         ↓
