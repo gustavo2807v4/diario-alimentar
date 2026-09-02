@@ -53,25 +53,7 @@ Publicar é seguro: **a chave da API não está no código.** Ela fica no Indexe
 navegador, e você a digita em Ajustes no próprio celular. O site publicado é uma casca
 vazia para qualquer pessoa que não tenha a própria chave.
 
-### Publicar de novo depois de mexer no código
-
-```bash
-npx vercel deploy --prod --scope equipe-gust
-```
-
-O `--scope` é necessário: sem ele o CLI cai no escopo pessoal e o deploy falha com
-`Not authorized`, porque o projeto vive no time. O vínculo fica em `.vercel/`, que **não
-está no repositório** — num clone novo, rode `npx vercel link --scope equipe-gust` antes
-do primeiro deploy.
-
-`vercel.json` cuida dos cabeçalhos — o mais importante deles impede que o `sw.js` fique
-preso em cache, senão o app travaria numa versão antiga. `.vercelignore` mantém fora da
-produção os CSVs de origem, os scripts de `tools/`, as capturas de tela e o `serve.mjs`,
-que só servem para desenvolvimento.
-
-> A proteção de deployment (Vercel Authentication) está **desligada** neste projeto — sem
-> isso o service worker e o manifest seriam redirecionados para a tela de login da Vercel
-> e o PWA não instalaria.
+As notas de deploy estão em [`docs/deploy.md`](docs/deploy.md).
 
 ### Rodar no celular sem publicar
 
@@ -266,3 +248,12 @@ Dados: **TACO — Tabela Brasileira de Composição de Alimentos, 4ª edição**
 - Lembretes por notificação
 - Marcar refeições recorrentes como "repetir ontem"
 - Exportar o relatório semanal em PDF
+
+---
+
+## Licença
+
+MIT — veja [`LICENSE`](LICENSE).
+
+Os dados nutricionais são da **TACO — Tabela Brasileira de Composição de Alimentos**,
+4ª edição, NEPA/UNICAMP, e pertencem a seus autores.
