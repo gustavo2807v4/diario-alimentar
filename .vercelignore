@@ -4,3 +4,6 @@ data/taco-indice.txt
 tools/
 serve.mjs
 README.md
+
+# Capturas de tela: nao vao para producao.
+docs/

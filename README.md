@@ -16,6 +16,22 @@ Roda inteiro no navegador. Nenhum servidor, nenhuma conta, nenhuma assinatura.
 
 ---
 
+## Como é
+
+| | |
+|---|---|
+| <img src="docs/capturas/01-dia.png" alt="Tela do dia: anel de calorias, cartão do Sistema com nível e rank, e as barras de macronutrientes" width="340"> | <img src="docs/capturas/02-status.png" alt="Painel de status: nível, rank, barra de XP, a missão diária com os quatro objetivos e os atributos" width="340"> |
+| **Dia** &mdash; o anel de calorias, o cartão do Sistema e os macros. | **Status** &mdash; a missão do dia, com o número real de cada objetivo. |
+| <img src="docs/capturas/03-treino.png" alt="Aba de treino: check-in do dia com os exercícios feitos e a lista de planos" width="340"> | <img src="docs/capturas/04-dieta.png" alt="Dieta: o dia planejado contra as metas e o cardápio do café da manhã" width="340"> |
+| **Treino** &mdash; o check-in de hoje e os planos que você monta. | **Dieta** &mdash; o cardápio de cada refeição, que vira registro em um toque. |
+
+<p align="center">
+  <img src="docs/capturas/05-nivel.png" alt="Painel de subida de nível mostrando o salto do nível 6 para o 9 e os atributos que subiram" width="420"><br>
+  <em>A subida de nível, quando os registros do dia elevam o nível.</em>
+</p>
+
+---
+
 ## Como colocar pra rodar
 
 Você precisa do [Node.js](https://nodejs.org) instalado (só para servir os arquivos).
@@ -40,13 +56,18 @@ vazia para qualquer pessoa que não tenha a própria chave.
 ### Publicar de novo depois de mexer no código
 
 ```bash
-npx vercel deploy --prod
+npx vercel deploy --prod --scope equipe-gust
 ```
 
-O projeto já está vinculado (`.vercel/`), então não pergunta mais nada. `vercel.json`
-cuida dos cabeçalhos — o mais importante deles impede que o `sw.js` fique preso em cache,
-senão o app travaria numa versão antiga. `.vercelignore` mantém fora da produção os CSVs
-de origem, os scripts de `tools/` e o `serve.mjs`, que só servem para desenvolvimento.
+O `--scope` é necessário: sem ele o CLI cai no escopo pessoal e o deploy falha com
+`Not authorized`, porque o projeto vive no time. O vínculo fica em `.vercel/`, que **não
+está no repositório** — num clone novo, rode `npx vercel link --scope equipe-gust` antes
+do primeiro deploy.
+
+`vercel.json` cuida dos cabeçalhos — o mais importante deles impede que o `sw.js` fique
+preso em cache, senão o app travaria numa versão antiga. `.vercelignore` mantém fora da
+produção os CSVs de origem, os scripts de `tools/`, as capturas de tela e o `serve.mjs`,
+que só servem para desenvolvimento.
 
 > A proteção de deployment (Vercel Authentication) está **desligada** neste projeto — sem
 > isso o service worker e o manifest seriam redirecionados para a tela de login da Vercel
